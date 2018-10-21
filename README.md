@@ -6,7 +6,7 @@ This script takes a Halite 3 replay and feeds it (turn by turn) to a Halite 3 bo
 
 `reload.py <filename> <player_id> <bot_path> <optional_2nd_bot_path>`
 
-Note, <player_id> will be 0, 1, 2, or 3.
+Note, `player_id` will be 0, 1, 2, or 3.
 
 # Requirements
 
