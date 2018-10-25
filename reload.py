@@ -224,7 +224,7 @@ def main():
 		if filename[-5:] != ".json":
 
 			if zstd_enabled == False:
-				"Run 'pip install zstandard' to read this file."
+				print("Run 'pip install zstandard' to read this file.")
 				sys.exit()
 
 			dctx = zstandard.ZstdDecompressor()
