@@ -221,7 +221,13 @@ def main():
 
 	with open(filename, "rb") as infile:
 
-		if filename[-5:] != ".json":
+		try:
+
+			replay = json.loads(infile.read())
+
+		except:
+
+			infile.seek(0)
 
 			if zstd_enabled == False:
 				print("Run 'pip install zstandard' to read this file.")
@@ -231,11 +237,6 @@ def main():
 			compressed = infile.read()
 			j = dctx.decompress(compressed)
 			replay = json.loads(j)
-
-		else:
-
-			replay = json.loads(infile.read())
-
 
 	game = Game(replay)
 
