@@ -264,7 +264,10 @@ def main():
 			game.send_frame(link, n)
 			bot_outputs[i].append(MoveList(link.stdout.readline().decode("utf-8")))
 
-		replay_moves = MoveList(game.game["full_frames"][n]["moves"][str(pid)])
+		try:
+			replay_moves = MoveList(game.game["full_frames"][n]["moves"][str(pid)])
+		except KeyError:
+			replay_moves = MoveList([])
 
 		sids = replay_moves.sids()
 
