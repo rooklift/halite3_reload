@@ -1,6 +1,6 @@
 # Usage: reload.py <filename> <player_id> <bot_path> <optional_2nd_bot_path>
 
-import json, subprocess, sys
+import atexit, json, subprocess, sys
 
 try:
 	import zstandard
@@ -246,7 +246,6 @@ def main():
 		for link in links:
 			link.kill()
 
-	import atexit
 	atexit.register(kill_subprocesses)
 
 	for n in range(3, len(sys.argv)):
