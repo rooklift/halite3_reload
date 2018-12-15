@@ -242,6 +242,13 @@ def main():
 
 	links = []
 
+	def kill_subprocesses():
+		for link in links:
+			link.kill()
+
+	import atexit
+	atexit.register(kill_subprocesses)
+
 	for n in range(3, len(sys.argv)):
 		links.append(subprocess.Popen(sys.argv[n], shell = False, stdin = subprocess.PIPE, stdout = subprocess.PIPE))
 
