@@ -243,7 +243,7 @@ def main():
 	links = []
 
 	for n in range(3, len(sys.argv)):
-		links.append(subprocess.Popen(sys.argv[n], shell = False, stdin = subprocess.PIPE, stdout = subprocess.PIPE))
+		links.append(subprocess.Popen([sys.argv[n], str(game.game['map_generator_seed'])], shell = False, stdin = subprocess.PIPE, stdout = subprocess.PIPE))
 
 	pid = int(sys.argv[2])
 
